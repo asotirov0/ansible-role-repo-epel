@@ -1,0 +1,12 @@
+---
+
+- name: "Create custom fact directory if doesn't exists"
+  file:
+    path: "/etc/ansible/facts.d"
+    state: "directory"
+
+- name: "Insert custom fact file"
+  copy:
+    src: files/repo_epel.sh
+    dest: /etc/ansible/facts.d/repo_epel.fact
+    mode: 0755
